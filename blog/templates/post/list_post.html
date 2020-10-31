@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %} 
+{% load static %}
+{% block title %} List {% endblock %} 
+{% block link %}
+<link rel="stylesheet" href="{% static 'blog/css/index.css' %}" type="text/css">
+{% endblock  %}
+{% block content %}
+<h1>My Posts</h1>
+<hr>
+{% for obj in post %}
+<h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+<p id="publish">published by {{ obj.author }} on {{ obj.publish }}</p>
+<p id="details">{{ obj.body | truncatewords:5 | linebreaks }}</p>
+{% endfor %}
+{% endblock %}

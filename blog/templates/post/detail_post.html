@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %} 
+{% load static %}
+{% block title %} Posts{% endblock  %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'blog/css/index.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'blog/css/detail.css' %}" type="text/css">
+{% endblock  %}
+    {% block content %}
+    <h1>Post</h1>
+    <h2>{{ post.title }}</h2>
+    <p id="publish">published by {{ post.author }} on {{ post.publish }}</p>
+    <p id="details">{{ post.body }}</p>
+    <a href="{% url 'email'  post.slug %}">Share this post</a>
+    {% if count %}
+    <h3>{{ count }} comment{{ count | pluralize }}</h3>
+    <div>
+    {% for comment in qset %} 
+    <p id="publish">comment {{ forloop.counter }} by {{ comment.name}} on {{ comment.created }}</p>
+    <p id="details">{{ comment.body }}</p>
+    {% endfor %} 
+    </div>
+    {% else %}
+    <h3>0 comments</h3>
+    <p>There are no comments yet</p>
+    {% endif %} 
+    {% if commentform.errors %}
+    <p style="color: crimson">Please Correct the following errors!!</p>
+    {% endif %} {% if comdata %}
+    <h3>New Comment added</h3>
+    {% else %}
+    <h2>Add a new comment</h2>
+    <form action="" method="POST" novalidate>
+      {% csrf_token %}
+      <table>
+        {{ commentform }}
+      </table>
+      <input type="submit" value="comment" />
+    </form>
+    {% endif %}
+  {% endblock  %}

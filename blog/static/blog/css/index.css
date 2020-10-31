@@ -1,0 +1,18 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: lightsalmon;
+}
+#publish {
+    font-size: smaller;
+    color: lightslategray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#details {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+}

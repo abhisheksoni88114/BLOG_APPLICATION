@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email</title>
+    <style>
+      .errorlist {
+        color: crimson;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    {% if email.errors %}
+    <p style="color: crimson">Please Correct the following errors!!</p>
+    {% endif %} {% if success %}
+    <h2>Email successfully sent</h2>
+    <p>Notes on {{ title }} successfully sent to {{ email.cleaned_data.to }}</p>
+    {% else %} {{ title }}
+    <form action="" method="POST" novalidate>
+      {% csrf_token %}
+      <table>
+        {{ email }}
+      </table>
+      <input type="submit" value="Send" />
+    </form>
+    {% endif %}
+  </body>
+</html>
