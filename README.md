@@ -1,5 +1,5 @@
 
-![Screenshot (834)](https://user-images.githubusercontent.com/67193739/120165482-4145da80-c219-11eb-8832-1c4d6143673b.png)
+
 # BLOG_APPLICATION
 
 
